@@ -59,6 +59,8 @@ _{to determine if the toaster is mounted}_
 **onUnmount** (_optional_): **_function_**
 _{to determine if the toaster is unmounted}_
 
+**onDismissed** (_optional_): **_function_**
+_{to determine if the toaster is close by clicking dismissed button}_
 # _**Usage**_
 
 ```js
@@ -66,3 +68,7 @@ retoast({
     body: 'show me toast'
 })
 ```
+
+# _**TIP**_
+
+The unmounting time is 600 milliseconds so if you are about to customize closing animation it must be within that time range to show the whole animation
