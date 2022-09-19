@@ -89,8 +89,10 @@ Toast.defaultProps = {
     classExit: 'fade-retoast-out'
 }
 
-const createNode = (parent = document.body) => {
-    return parent.appendChild(document.createElement('div'))
+const createNode = (parent?: any) => {
+    if(typeof document !== "undefined") {
+        return (parent || document.body).appendChild(document.createElement('div'))
+    }
 }
 
 const toastContainer = createNode()
@@ -129,7 +131,7 @@ export default createDimension(Toast, {
     containerNode: ({ placement = 'top-right'}) => container[placement],
     manipulateWrapperNode: (wrapperNode, props) => {
 
-        if(props.key) {
+        if(props.key && typeof document !== "undefined") {
             const existNode = document.getElementById(props.key)
 
             if(existNode) {
