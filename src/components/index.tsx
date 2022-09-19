@@ -13,6 +13,7 @@ interface ToastProps {
     duration?: number;
     delay?: number;
     dismissible?: boolean;
+    dismissIcon?: React.ReactNode;
     onMount?: () => void;
     onUnmount?: () => void;
     onDismissed?: () => void;
@@ -26,6 +27,7 @@ export const Toast: React.FunctionComponent<ToastProps> = ({
     variant,
     duration,
     dismissible,
+    dismissIcon,
     onMount,
     onUnmount,
     onDismissed
@@ -71,7 +73,7 @@ export const Toast: React.FunctionComponent<ToastProps> = ({
                                 resolve(true)
                                 onDismissed && onDismissed()
                             }}>
-                            &times;
+                            {dismissIcon || <>&times;</>}
                         </button>
                     )}
                 </div>
