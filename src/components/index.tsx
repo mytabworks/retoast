@@ -101,7 +101,9 @@ const setNodePosition = (position: string) => {
 
     const node = createNode(toastContainer)
 
-    node.id = `retoast-${position}`
+    if(node) {
+        node.id = `retoast-${position}`
+    }
 
     return node
 }
